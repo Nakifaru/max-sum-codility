@@ -9,9 +9,11 @@ def solution(A):
         #First convert the integer to a string to allow converting to a list
         digits = list(str(integer))
         #add the two digits
-        sum_digits = int(digits[0]) + int(digits[1])
+        current_sum = 0
+        for digit in digits:
+            current_sum += int(digit)
         #add the sum of our digits to the sum_digits list
-        sums_of_digits.append(sum_digits)
+        sums_of_digits.append(current_sum)
 
     #loop through the sums of digits while checking for duplicates
     #current index is i
@@ -46,3 +48,9 @@ def solution(A):
 solution([51, 71, 17, 42]) #93 -> 51 + 42
 solution([42, 33, 60]) #102 -> 42 + 60
 solution([51, 32, 43]) #-1 -> no similar sum 
+
+#case where there are 3 integers whose digits have the same sum
+solution([51, 71, 17, 42, 60]) #111 -> 51 + 60
+
+#casw where the input has 3 digits
+solution([222, 121, 400, 303]) # 525 -> 222 + 303
